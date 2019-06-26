@@ -1,0 +1,20 @@
+- hosts: all
+  become: yes
+
+  vars_files:
+    - vars/default.yml
+
+  vars:
+    pip_install_packages:
+      - name: ansible
+      - name: docker
+      - name: docker-compose
+    nodejs_npm_global_packages:
+      - name: npm
+
+  roles:
+    - role: geerlingguy.repo-epel
+    - role: geerlingguy.pip
+    - role: geerlingguy.docker
+    - role: geerlingguy.nodejs
+    - role: awx

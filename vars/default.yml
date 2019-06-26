@@ -1,0 +1,2 @@
+awx_repo_url: https://github.com/ansible/awx.git
+work_dir: /tmp/awx-install

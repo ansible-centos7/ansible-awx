@@ -1,0 +1,13 @@
+- name: Install Git
+  yum:
+    name: git
+
+- name: Retrieve Ansible AWX installer
+  git:
+    repo: '{{ awx_repo_url }}'
+    dest: '{{ work_dir }}'
+
+- name: Install Ansible AWX
+  command: ansible-playbook -i inventory install.yml
+  args:
+    chdir: "{{ work_dir }}/installer"
