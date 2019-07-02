@@ -6,6 +6,7 @@
   git:
     repo: '{{ awx_repo_url }}'
     dest: '{{ work_dir }}'
+    version: '{{ awx_repo_version }}'
 
 - name: Install Ansible AWX
   command: ansible-playbook -i inventory install.yml
