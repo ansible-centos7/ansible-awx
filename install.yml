@@ -1,5 +1,5 @@
 - hosts: all
-  become: yes
+  become: true
 
   vars_files:
     - vars/default.yml
@@ -12,8 +12,17 @@
     nodejs_npm_global_packages:
       - name: npm
 
+  pre_tasks:
+    - name: Update apt cache.
+      apt:
+         update_cache: yes
+         cache_valid_time: 600
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+
   roles:
     - role: geerlingguy.repo-epel
+      when: ansible_os_family == "RedHat"
     - role: geerlingguy.git
     - role: geerlingguy.pip
     - role: geerlingguy.docker
