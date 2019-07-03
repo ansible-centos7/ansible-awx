@@ -1,5 +1,6 @@
 ---
 - geerlingguy.repo-epel
+- geerlingguy.git
 - geerlingguy.pip
 - geerlingguy.docker
-- geerlingguy.nodejs 
+- geerlingguy.nodejs
