@@ -8,3 +8,30 @@
   command: ansible-playbook -i inventory install.yml
   args:
     chdir: "{{ work_dir }}/installer"
+
+- name: Register ansible.cfg GitHub URL
+  command: "echo {{ ansiblecfg_repo_url }}"
+  register: cfg_url
+
+- name: Initialize working dir
+  command:
+    docker exec -it awx_task
+    /bin/bash -c
+    "rm -rf /tmp/ansiblecfg"
+  when: cfg_url.stdout != ""
+
+- name: Retrieve ansible.cfg
+  command:
+     docker exec -it awx_task
+     /bin/bash -c
+     "git clone {{ ansiblecfg_repo_url }}
+     -b {{ ansiblecfg_repo_version }}
+     /tmp/ansiblecfg"
+  when: cfg_url.stdout != ""
+
+- name: Create ansible.cfg
+  command:
+    docker exec -it awx_task
+    /bin/bash -c
+    "mv /tmp/ansiblecfg/ansible.cfg /etc/ansible/ansible.cfg"
+  when: cfg_url.stdout != ""

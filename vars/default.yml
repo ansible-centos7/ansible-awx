@@ -2,8 +2,15 @@
 awx_repo_url: https://github.com/ansible/awx.git
 
 #AWX GitHub branch name or tags to retrieve
-#Default is devel
-awx_repo_version: devel
+#Default is 5.0.0 
+awx_repo_version: 5.0.0 
+
+# Costomized ansible.cfg url
+ansiblecfg_repo_url:
+
+#ansible.cfg GitHub branch name or tags to retrieve
+#Default is master 
+ansiblecfg_repo_version: master
 
 # Playbook  working directory
 work_dir: /tmp/awx-install
