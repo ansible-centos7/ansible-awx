@@ -7,6 +7,7 @@
   vars:
     pip_install_packages:
       - name: ansible
+      - name: ansible-tower-cli
       - name: docker
       - name: docker-compose
     nodejs_npm_global_packages:
