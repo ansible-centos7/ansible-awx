@@ -1,8 +1,8 @@
 - hosts: all
-  become: true
+  become: True
 
   vars_files:
-    - vars/default.yml
+    - vars/main.yml
 
   vars:
     pip_install_packages:
