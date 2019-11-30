@@ -3,7 +3,7 @@ awx_repo_url: https://github.com/ansible/awx.git
 
 #AWX GitHub branch name or tags to retrieve
 #Default is 7.0.0
-awx_repo_version: 7.0.0
+awx_repo_version: 9.0.1 
 
 # Costomized ansible.cfg url
 ansiblecfg_repo_url:

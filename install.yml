@@ -1,15 +1,22 @@
 - hosts: all
-  become: True
+  become: true
 
   vars_files:
     - vars/main.yml
 
   vars:
     pip_install_packages:
+      - name: pip
+        version: "9.0.3"
+        state: forcereinstall
+      - name: ipify
+      - name: pip
+        state: latest
+      - name: docker
       - name: ansible
       - name: ansible-tower-cli
-      - name: docker
       - name: docker-compose
+        version: "1.24.1"
     nodejs_npm_global_packages:
       - name: npm
 
